@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 30/05/2015 09:23:13 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="gym.modelo.entidad.Movimiento" table="MOVIMIENTO" schema="GENARUS" optimistic-lock="version">
+        <id name="idMovimiento" type="string">
+            <column name="ID_MOVIMIENTO" length="6" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="persona" class="gym.modelo.entidad.Persona" fetch="select">
+            <column name="ID_PERSONA" length="6" />
+        </many-to-one>
+        <many-to-one name="usuario" class="gym.modelo.entidad.Usuario" fetch="select">
+            <column name="ID_USUARIO" length="6" />
+        </many-to-one>
+        <many-to-one name="contratoCliente" class="gym.modelo.entidad.ContratoCliente" fetch="select">
+            <column name="ID_CONTRATO_CLIENTE" length="6" />
+        </many-to-one>
+        <property name="fecha" type="date">
+            <column name="FECHA" length="7" />
+        </property>
+        <property name="detalle" type="string">
+            <column name="DETALLE" length="20" />
+        </property>
+        <property name="totalRecibido" type="big_decimal">
+            <column name="TOTAL_RECIBIDO" precision="22" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

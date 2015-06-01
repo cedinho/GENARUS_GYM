@@ -1,0 +1,36 @@
+.titulo1{
+	text-align: center;
+	color: #0000FF;
+}
+.cuerpo1{
+	text-align: justify;
+	height: 480px;
+}
+footer
+{
+	background-color: #030303;
+	color: #F1F1F1;
+	font-size: 16px;
+	margin-top: 20px;
+	padding: 20px;
+	text-align: center;
+}
+.carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 100%;
+      margin: auto;
+            
+
+}
+#sha{
+  max-width: 340px;
+  -webkit-box-shadow: 0px 0px 18px 0px rgba(48, 50, 50, 0.48);
+  -moz-box-shadow: 0px 0px 18px 0px rgba(48, 50, 50, 0.48);
+  box-shadow: 0px 0px 18px 0px rgba(48, 50, 50, 0.48);
+  border-radius: 6%;
+  
+}
+section{
+   
+  
+}

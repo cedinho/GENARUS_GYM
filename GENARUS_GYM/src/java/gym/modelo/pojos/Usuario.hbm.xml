@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 30/05/2015 09:23:13 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="gym.modelo.entidad.Usuario" table="USUARIO" schema="GENARUS" optimistic-lock="version">
+        <id name="idUsuario" type="string">
+            <column name="ID_USUARIO" length="6" />
+            <generator class="foreign">
+                <param name="property">persona</param>
+            </generator>
+        </id>
+        <one-to-one name="persona" class="gym.modelo.entidad.Persona" constrained="true"></one-to-one>
+        <property name="usuario" type="string">
+            <column name="USUARIO" length="20" />
+        </property>
+        <property name="password" type="string">
+            <column name="PASSWORD" length="20" />
+        </property>
+        <property name="tipo" type="string">
+            <column name="TIPO" length="10" />
+        </property>
+        <property name="estado" type="string">
+            <column name="ESTADO" length="1" />
+        </property>
+        <set name="asistenciaClientes" table="ASISTENCIA_CLIENTE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO" length="6" />
+            </key>
+            <one-to-many class="gym.modelo.entidad.AsistenciaCliente" />
+        </set>
+        <set name="contratoClientes" table="CONTRATO_CLIENTE" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO" length="6" />
+            </key>
+            <one-to-many class="gym.modelo.entidad.ContratoCliente" />
+        </set>
+        <set name="movimientos" table="MOVIMIENTO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO" length="6" />
+            </key>
+            <one-to-many class="gym.modelo.entidad.Movimiento" />
+        </set>
+    </class>
+</hibernate-mapping>
